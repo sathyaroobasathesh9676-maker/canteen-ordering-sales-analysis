@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful - Velalar Canteen</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        header {
+            background: #176b45;
+            color: white;
+            padding: 25px;
+        }
+
+        .container {
+            background: white;
+            max-width: 550px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        h2 {
+            color: #176b45;
+        }
+
+        .total {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 25px;
+        }
+
+        a {
+            display: inline-block;
+            background: #176b45;
+            color: white;
+            padding: 12px 22px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Velalar College Canteen</h1>
+</header>
+
+<div class="container">
+
+    <h2>Order Placed Successfully!</h2>
+
+    <p>Thank you for ordering from our canteen.</p>
+
+    <p>Your order has been saved successfully.</p>
+
+    <div class="total">
+        Total Bill: Rs.
+        <span th:text="${total}"></span>
+    </div>
+
+    <a href="/menu">View Food Menu</a>
+
+    <p>
+        <a href="/order">Place Another Order</a>
+    </p>
+
+    <p><a href="/">Back to Home</a></p>
+
+</div>
+
+</body>
+</html>

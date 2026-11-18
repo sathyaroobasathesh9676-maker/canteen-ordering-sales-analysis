@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velalar College Canteen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            color: #333;
+        }
+        header {
+            background: #176b45;
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            width: 230px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+        a {
+            display: inline-block;
+            background: #176b45;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background: #104b30;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Velalar College Canteen</h1>
+    <p>Canteen Ordering and Sales Analysis System</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Food Menu</h2>
+        <p>View available food items, prices and stock.</p>
+        <a href="/menu">View Food Menu</a>
+    </div>
+
+    <div class="card">
+    <h2>Place an Order</h2>
+    <p>Order your favourite food items.</p>
+    <a href="/order">Place an Order</a>
+</div>
+
+    
+<div class="card">
+    <h2>Sales Analysis</h2>
+    <p>View canteen sales reports and charts.</p>
+    <a href="/sales">View Sales Dashboard</a>
+</div>
+
+</div>
+
+</body>
+</html>

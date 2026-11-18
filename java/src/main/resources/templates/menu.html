@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu - Velalar Canteen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            color: #333;
+        }
+        header {
+            background: #176b45;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #176b45;
+            color: white;
+        }
+        a {
+            color: #176b45;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Velalar College Canteen</h1>
+    <p>Our Food Menu</p>
+</header>
+
+<div class="container">
+    <h2>Available Food Items</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Food Name</th>
+                <th>Price (Rs.)</th>
+                <th>Available Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="food : ${foodItems}">
+                <td th:text="${food.item_id}"></td>
+                <td th:text="${food.item_name}"></td>
+                <td th:text="${food.price}"></td>
+                <td th:text="${food.stock_qty}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/">Back to Home</a></p>
+</div>
+</body>
+</html>

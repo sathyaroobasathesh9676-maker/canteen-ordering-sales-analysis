@@ -9,7 +9,8 @@ from db_config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "sample_outputs"
 OUTPUT.mkdir(exist_ok=True)
-
+WEB_OUTPUT = ROOT / "java" / "src" / "main" / "resources" / "static" / "charts"
+WEB_OUTPUT.mkdir(parents=True, exist_ok=True)
 
 def main():
     connection = None
@@ -71,9 +72,8 @@ def main():
 
         plt.tight_layout()
         plt.savefig(OUTPUT / "item_wise_sales.png", dpi=150)
-        plt.close()
-
-        # 2. Daily revenue
+        plt.savefig(WEB_OUTPUT / "item_wise_sales.png", dpi=150)
+        plt.close()        # 2. Daily revenue
         daily = (
             df.set_index("order_date")
             .resample("D")["line_total"]
@@ -90,8 +90,8 @@ def main():
 
         plt.tight_layout()
         plt.savefig(OUTPUT / "daily_revenue.png", dpi=150)
+        plt.savefig(WEB_OUTPUT / "daily_revenue.png", dpi=150)
         plt.close()
-
         # 3. Popular food items
         item_sales.head(5).plot(
             kind="pie",
@@ -99,9 +99,9 @@ def main():
             title="Popular Food Items",
             ylabel=""
         )
-
         plt.tight_layout()
         plt.savefig(OUTPUT / "popular_food_items.png", dpi=150)
+        plt.savefig(WEB_OUTPUT / "popular_food_items.png", dpi=150)
         plt.close()
 
         print("\nSALES ANALYSIS COMPLETED!")

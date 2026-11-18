@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order - Velalar Canteen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            color: #333;
+        }
+        header {
+            background: #176b45;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #176b45;
+            color: white;
+        }
+        input {
+            width: 65px;
+            padding: 8px;
+        }
+        button {
+            background: #176b45;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Velalar College Canteen</h1>
+    <p>Place Your Order</p>
+</header>
+
+<div class="container">
+
+    <h2>Select Food Items</h2>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+
+    <form action="/place-order" method="post">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Food Name</th>
+                    <th>Price (Rs.)</th>
+                    <th>Available Stock</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="food : ${foodItems}">
+                    <td th:text="${food.item_name}"></td>
+                    <td th:text="${food.price}"></td>
+                    <td th:text="${food.stock_qty}"></td>
+                    <td>
+                        <input type="number"
+                               th:name="'qty_' + ${food.item_id}"
+                               min="0"
+                               th:max="${food.stock_qty}"
+                               value="0">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <button type="submit">Place Order</button>
+        </p>
+
+    </form>
+
+    <p><a href="/">Back to Home</a></p>
+
+</div>
+
+</body>
+</html>
