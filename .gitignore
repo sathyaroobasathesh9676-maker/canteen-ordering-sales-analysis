@@ -1,0 +1,10 @@
+java/target/
+*.class
+.venv/
+__pycache__/
+*.pyc
+# Replace local credential files with the .example templates before publishing.
+
+# Local database credentials
+java/src/main/resources/db.properties
+python/db_config.py
